@@ -10,11 +10,12 @@ const postActivity = async (req, res) => {
         }
 
         const data = await Activity.create({ nombre, dificultad, descripcion, duracion, temporada })
+        console.log(countries)
 
         const countryID = await Country.findAll({
             attributes: ['id'], where: {
                 nombre: {
-                    [Op.iLike]: `%${countries}%`
+                    [Op.in]: countries
                 }
             }
         })

@@ -24,8 +24,7 @@ const getAllCountry = async (req, res) => {
                         [Op.iLike]: `%${name}`
                         // [Op.iLike]: `%${name}%`
                     }
-                },
-                include: {
+                }, include: {
                     model: Activity
                 }
             })
